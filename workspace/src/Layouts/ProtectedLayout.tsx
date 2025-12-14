@@ -1,5 +1,5 @@
-import { useAuth } from "../contexts/authContext";
-import { Navigate, Outlet } from "react-router";
+import { useAuth } from "../contexts/AuthContext";
+import { Navigate } from "react-router";
 
 const ProtectedLayout = ({children}: {children: React.ReactNode}) => {
     const { accessToken } = useAuth();

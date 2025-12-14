@@ -1,4 +1,4 @@
-import { MoveToHomeButton, MoveToBackButton } from "./Buttons";
+import { MoveToHomeButton } from "./Buttons";
 
 export function AuthHeader({ text }: { text: string }) {
     return (

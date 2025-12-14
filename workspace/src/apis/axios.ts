@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosHeaders } from "axios";
 import type { InternalAxiosRequestConfig } from "axios";
 import { LOCAL_STORAGE_KEY } from "../constants/Key";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -23,8 +23,13 @@ axiosInstance.interceptors.request.use((config) => {
 
     // 액세스 토큰이 존재하면 Authorization 헤더에 Bearer 토큰 형식으로 추가
     if (accessToken) {
-        config.headers = config.headers || {};
-        config.headers.Authorization = `Bearer ${accessToken}`;
+        const headers =
+            config.headers instanceof AxiosHeaders
+                ? config.headers
+                : new AxiosHeaders(config.headers ?? {});
+
+        headers.set("Authorization", `Bearer ${accessToken}`);
+        config.headers = headers;
 
     }
 
@@ -80,7 +85,7 @@ axiosInstance.interceptors.response.use(
                     // 새 accessToken 반환하여 인터셉터에서 사용할 수 있도록 함
                     return data.data.accessToken;
                 }) ()
-                    .catch((error) => {
+                    .catch(() => {
                         const { removeItem: removeAccessToken } = useLocalStorage(LOCAL_STORAGE_KEY.accessToken);
                         const { removeItem: removeRefreshToken } = useLocalStorage(LOCAL_STORAGE_KEY.refreshToken);
                         removeAccessToken();

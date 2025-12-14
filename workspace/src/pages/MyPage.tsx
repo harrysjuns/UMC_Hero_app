@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useAuth } from "../contexts/authContext";
+import { useAuth } from "../contexts/AuthContext";
 import { getMyInfo } from "../apis/auth";
 import type { ResponseMyInfoDto } from "../types/Auth";
 

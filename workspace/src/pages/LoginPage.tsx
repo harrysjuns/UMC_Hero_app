@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import useForm from "../hooks/useForm";
-import { useAuth } from "../contexts/authContext";
+import { useAuth } from "../contexts/AuthContext";
 
 import type { UserSigninInformations } from "../utills/validate";
 import { validateSignin } from "../utills/validate";
 
-import { MoveToHomeButton, SigninToGoogleButton, LabelWithButton } from "../components/Buttons";
+import { SigninToGoogleButton, LabelWithButton } from "../components/Buttons";
 import { DividerWithText } from "../components/Divider";
 import { AuthHeader } from "../components/Header";
 import PasswordToggleButton from "../components/PasswordToggleButton";

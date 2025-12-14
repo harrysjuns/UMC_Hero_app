@@ -14,14 +14,6 @@ const AUTHS_LINKS = [
   },
 ];
 
-const USER_LINKS = [
-  {
-    to: "/login",
-    label: "로그인",
-    className: "text-purple-300 hover:bg-purple-400/10"    
-  },
-];
-
 const MOVIE_LINKS = [
   { to: "/", label: "홈" },
   { to: "/movies/popular", label: "인기 영화" },

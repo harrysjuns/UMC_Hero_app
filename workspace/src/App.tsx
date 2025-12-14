@@ -16,7 +16,7 @@ import GoogleLoginRedirectPage from './pages/GoogleLoginRedirectPage';
 import ScrollToTopButton from './components/Buttons';
 
 import { createBrowserRouter, RouterProvider, type RouteObject } from "react-router-dom";
-import { AuthProvider } from './contexts/authContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
   //console.log(import.meta.env.VITE_TMDB_KEY);
